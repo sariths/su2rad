@@ -413,8 +413,8 @@ class MaterialContext < ExportBase
             text += "\nvoid plastic #{name}"
             text += "\n0\n0\n"
             text += "5 %.4f %.4f %.4f %.3f %.3f\n" % [r,g,b,spec,rough]
-        elsif skm.alpha >= 0.2     ## treshold to use glass or  
-            trans = skm.alpha
+        elsif skm.alpha >= 0.15     ## threshold to use glass or  
+            trans = 1 - skm.alpha
             transspec = 0.2
             text += "\nvoid trans #{name}"
             text += "\n0\n0\n"
