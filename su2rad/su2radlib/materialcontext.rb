@@ -421,12 +421,12 @@ module Tbleicher
           text += "\n0\n0\n3"
           text += "  %.4f %.4f %.4f\n" % [r,g,b]
         ## use c.alpha to decide on material type (alpha between 0 and 1!) 
-        elsif c.alpha >= 0.95
+        elsif skm.alpha >= 0.95
           text += "\nvoid plastic #{name}"
           text += "\n0\n0\n"
           text += "5 %.4f %.4f %.4f %.3f %.3f\n" % [r,g,b,spec,rough]
-        elsif c.alpha >= 0.2     ## treshold to use glass or trans
-          trans = c.alpha
+        elsif skm.alpha >= 0.15     ## treshold to use glass or trans
+          trans = skm.alpha
           transspec = 0.2
           text += "\nvoid trans #{name}"
           text += "\n0\n0\n"
